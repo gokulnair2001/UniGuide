@@ -1,3 +1,3 @@
-UniGuide iOS App
+## UniGuide iOS App
 
-UniGuide - A Resource Management System
+### UniGuide - A Resource Management System
