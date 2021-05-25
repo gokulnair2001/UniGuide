@@ -9,6 +9,8 @@ import UIKit
 
 class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    static var userToken:String = ""
+    
     var suggestedBookImage = ["s1","s2","s3","s4","s5","s6","s7"]
     var suggestedBookName = ["Engineering Journal","Electrical Engineering","Engineering Studies","Software Engineering","Systems Engineering","ELectronics Journal","Computer Engineering"]
     var suggestedBookCode = ["UG9897","UG565","UG8732","UG2341","UG6765","UG7864","UG6969"]
