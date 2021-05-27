@@ -29,6 +29,16 @@ class UserViewController: UIViewController {
         proPack.layer.cornerRadius = 10
         get()
     }
+    @IBAction func logoutBtn(_ sender: Any) {
+        let alert = UIAlertController(title: "Log Out", message: "Are you sure?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Log Out", style: .default, handler: { _ in
+            let vc = self.storyboard?.instantiateViewController(identifier: "mainView") as! ViewController
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 
