@@ -7,47 +7,74 @@
 
 import UIKit
 
-class ProjectsViewController: UIViewController {
+class ProjectsViewController: UIViewController, didUpdateResults {
+    func updateResults(tagNo: Int) {
+        switch tagNo {
+        case 0:
+            projectName = bct
+        case 1:
+            projectName = ai
+        case 2:
+            projectName = crypto
+        case 3:
+            projectName = cs
+        case 4:
+            projectName = iot
+        default:
+            projectName = copydata
+        }
+        self.tableView.reloadData()
+    }
+    
 
-    var projectName:[String] = ["BC: India's Strategy","Blockchain Technology","BCT: HyperLedger Fabric"]
-    var projectLink:[String] = ["https://drive.google.com/file/d/1A0LKzU-t53b4nVGfHnbH8Fb42s6UtyR-/view?usp=sharing","https://drive.google.com/file/d/1TKuw9z-chVPCtd2_7_vdYfrCuMjC9MJO/view?usp=sharing","https://drive.google.com/file/d/1EJP0Ppl3FAk2wXxmVrfKcaCmgzK1BtpV/view?usp=sharing"]
-    var projectImage:[UIImage] = [#imageLiteral(resourceName: "pj1"),#imageLiteral(resourceName: "pj2"),#imageLiteral(resourceName: "pj3")]
-    var projYear:[String] = ["2020","2021","2019"]
+    var projectName:[String] = ["BCT India Strategy","BCT HyperLedger Fabric","AI for Social Use","BCT Network","Creativity in AI","IOT is Revolutionary","Cyber Security is Emerging","Bitcoin is Scalable","Intro to Cyber Security","Bitcoin's Backbone"]
+    
+    var copydata = ["BCT India Strategy","BCT HyperLedger Fabric","AI for Social Use","BCT Network","Creativity in AI","IOT is Revolutionary","Cyber Security is Emerging","Bitcoin is Scalable","Intro to Cyber Security","Bitcoin's Backbone"]
+    
+    var iot = ["IOT is Revolutionary"]
+    var bct = ["BCT India Strategy","BCT HyperLedger Fabric","BCT Network"]
+    var crypto = ["Bitcoin is Scalable","Bitcoin's Backbone"]
+    var cs = ["Intro to Cyber Security","Cyber Security is Emerging"]
+    var ai = ["AI for Social Use","Creativity in AI"]
+    
+    var projectLink:[String] = ["","","","","","","","","",""]
+    var projectImage:[UIImage] = [#imageLiteral(resourceName: "cover3"),#imageLiteral(resourceName: "cover3"),#imageLiteral(resourceName: "cover2"),#imageLiteral(resourceName: "cover1")]
+   
+    let searchController = UISearchController(searchResultsController: nil)
     
     static var selectedProj:String = ""
     
-    @IBOutlet weak var view1: UIView!
-    @IBOutlet weak var view2: UIView!
-    @IBOutlet weak var view3: UIView!
-    @IBOutlet weak var view4: UIView!
-    
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var segment: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view1.layer.cornerRadius = 10
-//        view1.layer.borderWidth = 0.4
-//        view1.layer.borderColor = UIColor.black.cgColor
-        
-        view2.layer.cornerRadius = 10
-//        view2.layer.borderWidth = 0.4
-//        view2.layer.borderColor = UIColor.black.cgColor
-//
-        view3.layer.cornerRadius = 10
-//        view3.layer.borderWidth = 0.4
-//        view3.layer.borderColor = UIColor.black.cgColor
-        
-        view4.layer.cornerRadius = 10
-//        view4.layer.borderWidth = 0.4
-//        view4.layer.borderColor = UIColor.black.cgColor
-        
+        searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
     }
    
-
+    @IBAction func segmentAction(_ sender: Any) {
+        
+        if segment.selectedSegmentIndex == 0 {
+            projectName = ["BCT India Strategy","BCT HyperLedger Fabric","AI for Social Use","BCT Network","Creativity in AI","IOT is Revolutionary","Cyber Security is Emerging","Bitcoin is Scalable","Intro to Cyber Security","Bitcoin's Backbone"]
+            tableView.reloadData()
+        }
+    }
+    
+    @IBAction func reloadBtn(_ sender: Any) {
+        projectName = ["BCT India Strategy","BCT HyperLedger Fabric","AI for Social Use","BCT Network","Creativity in AI","IOT is Revolutionary","Cyber Security is Emerging","Bitcoin is Scalable","Intro to Cyber Security","Bitcoin's Backbone"]
+        tableView.reloadData()
+    }
     @IBAction func uploadRepoBtn(_ sender: Any) {
         self.performSegue(withIdentifier: "upload", sender: nil)
+    }
+    @IBAction func filterButton(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(identifier: "tagView") as! filterViewController
+        vc.modalPresentationStyle = .automatic
+        vc.tagDelegate = self
+        present(vc, animated: true, completion: nil)
     }
 }
 
@@ -60,8 +87,7 @@ extension ProjectsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! pjTableViewCell
         cell.pjNameLbl.text = projectName[indexPath.row]
-        cell.pjImage.image = projectImage[indexPath.row]
-        cell.yearlLbl.text = projYear[indexPath.row]
+        cell.pjImage.image = projectImage.randomElement()
         cell.layer.cornerRadius = 15
         cell.layer.borderWidth = 2
         cell.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -76,5 +102,27 @@ extension ProjectsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         ProjectsViewController.selectedProj = projectLink[indexPath.row]
         self.performSegue(withIdentifier: "showProj", sender: nil)
+    }
+}
+
+extension ProjectsViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+       
+        if searchText.isEmpty {
+          projectName = ["BCT India Strategy","BCT HyperLedger Fabric","AI for Social Use","BCT Network","Creativity in AI","IOT is Revolutionary","Cyber Security is Emerging","Bitcoin is Scalable","Intro to Cyber Security","Bitcoin's Backbone"]
+            
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+        }else {
+            projectName = filterBy(option: 0, text: searchText)
+        }
+        tableView.reloadData()
+    }
+    func filterBy(option:Int, text:String) -> [String]{
+        projectName = copydata.filter({ (mod) -> Bool in
+            return mod.lowercased().contains(text.lowercased())
+        })
+        return projectName
     }
 }
