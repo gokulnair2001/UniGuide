@@ -12,24 +12,61 @@ class ProjectsViewController: UIViewController, didUpdateResults {
         switch tagNo {
         case 0:
             projectName = bct
+            projectLink = bctLinks
         case 1:
             projectName = ai
+            projectLink = aiLinks
         case 2:
             projectName = crypto
+            projectLink = cryptoLinks
         case 3:
             projectName = cs
+            projectLink = csLinks
         case 4:
             projectName = iot
+            projectLink = iotLinks
         default:
             projectName = copydata
+            projectLink = projectLinkCopy
         }
         self.tableView.reloadData()
     }
     
 
-    var projectName:[String] = ["BCT India Strategy","BCT HyperLedger Fabric","AI for Social Use","BCT Network","Creativity in AI","IOT is Revolutionary","Cyber Security is Emerging","Bitcoin is Scalable","Intro to Cyber Security","Bitcoin's Backbone"]
+    var projectName:[String] = ["BCT India Strategy",
+                                "BCT HyperLedger Fabric",
+                                "AI for Social Use",
+                                "BCT Network",
+                                "Creativity in AI",
+                                "IOT is Revolutionary",
+                                "Cyber Security is Emerging",
+                                "Bitcoin is Scalable",
+                                "Intro to Cyber Security",
+                                "Bitcoin's Backbone"]
     
     var copydata = ["BCT India Strategy","BCT HyperLedger Fabric","AI for Social Use","BCT Network","Creativity in AI","IOT is Revolutionary","Cyber Security is Emerging","Bitcoin is Scalable","Intro to Cyber Security","Bitcoin's Backbone"]
+    
+    var projectLink = ["https://drive.google.com/file/d/183IttyM5YbTNkScnJe0nn9gSFWwGRZEn/view",
+                       "https://drive.google.com/file/d/1fEif94p4CVgXxYrDSD_IufKGNOJdZIU9/view",
+                       "https://drive.google.com/file/d/1k8BDwqCzpY33P4lHjTUy61CVErecNbIt/view",
+                       "https://drive.google.com/file/d/1WdpVNxADCbUzK74HN2Wf_BOdog4nFNlf/view",
+                       "https://drive.google.com/file/d/1cn47Rhdd-OyRr-ybP7zWo_9HbDe0LnfQ/view",
+                       "https://drive.google.com/file/d/1WTezE62jD30yQpPAPavuz161-X5HrrQg/view",
+                       "https://drive.google.com/file/d/1jax9fZZxxK_M3roTPRdHexAqlQyyOdH-/view",
+                       "https://drive.google.com/file/d/1jax9fZZxxK_M3roTPRdHexAqlQyyOdH-/view",
+                       "https://drive.google.com/file/d/1sqiwwx8FEVV0S02urB6DGAbujy8RBOlf/view",
+                       "https://drive.google.com/file/d/1bDXWziicwIxMAejXrqq-yMRW06BG5udb/view"]
+    
+    var projectLinkCopy = ["https://drive.google.com/file/d/183IttyM5YbTNkScnJe0nn9gSFWwGRZEn/view",
+                       "https://drive.google.com/file/d/1fEif94p4CVgXxYrDSD_IufKGNOJdZIU9/view",
+                       "https://drive.google.com/file/d/1k8BDwqCzpY33P4lHjTUy61CVErecNbIt/view",
+                       "https://drive.google.com/file/d/1WdpVNxADCbUzK74HN2Wf_BOdog4nFNlf/view",
+                       "https://drive.google.com/file/d/1cn47Rhdd-OyRr-ybP7zWo_9HbDe0LnfQ/view",
+                       "https://drive.google.com/file/d/1WTezE62jD30yQpPAPavuz161-X5HrrQg/view",
+                       "https://drive.google.com/file/d/1jax9fZZxxK_M3roTPRdHexAqlQyyOdH-/view",
+                       "https://drive.google.com/file/d/1jax9fZZxxK_M3roTPRdHexAqlQyyOdH-/view",
+                       "https://drive.google.com/file/d/1sqiwwx8FEVV0S02urB6DGAbujy8RBOlf/view",
+                       "https://drive.google.com/file/d/1bDXWziicwIxMAejXrqq-yMRW06BG5udb/view"]
     
     var iot = ["IOT is Revolutionary"]
     var bct = ["BCT India Strategy","BCT HyperLedger Fabric","BCT Network"]
@@ -37,7 +74,13 @@ class ProjectsViewController: UIViewController, didUpdateResults {
     var cs = ["Intro to Cyber Security","Cyber Security is Emerging"]
     var ai = ["AI for Social Use","Creativity in AI"]
     
-    var projectLink:[String] = ["","","","","","","","","",""]
+    
+    var iotLinks = ["https://drive.google.com/file/d/1WTezE62jD30yQpPAPavuz161-X5HrrQg/view"]
+    var bctLinks = ["https://drive.google.com/file/d/183IttyM5YbTNkScnJe0nn9gSFWwGRZEn/view","https://drive.google.com/file/d/1fEif94p4CVgXxYrDSD_IufKGNOJdZIU9/view","https://drive.google.com/file/d/1WdpVNxADCbUzK74HN2Wf_BOdog4nFNlf/view"]
+    var cryptoLinks = ["https://drive.google.com/file/d/1jax9fZZxxK_M3roTPRdHexAqlQyyOdH-/view","https://drive.google.com/file/d/1bDXWziicwIxMAejXrqq-yMRW06BG5udb/view"]
+    var csLinks = ["https://drive.google.com/file/d/1jax9fZZxxK_M3roTPRdHexAqlQyyOdH-/view","https://drive.google.com/file/d/1sqiwwx8FEVV0S02urB6DGAbujy8RBOlf/view"]
+    var aiLinks = ["https://drive.google.com/file/d/1k8BDwqCzpY33P4lHjTUy61CVErecNbIt/view","https://drive.google.com/file/d/1cn47Rhdd-OyRr-ybP7zWo_9HbDe0LnfQ/view"]
+    
     var projectImage:[UIImage] = [#imageLiteral(resourceName: "cover3"),#imageLiteral(resourceName: "cover3"),#imageLiteral(resourceName: "cover2"),#imageLiteral(resourceName: "cover1")]
    
     let searchController = UISearchController(searchResultsController: nil)
@@ -65,6 +108,16 @@ class ProjectsViewController: UIViewController, didUpdateResults {
     
     @IBAction func reloadBtn(_ sender: Any) {
         projectName = ["BCT India Strategy","BCT HyperLedger Fabric","AI for Social Use","BCT Network","Creativity in AI","IOT is Revolutionary","Cyber Security is Emerging","Bitcoin is Scalable","Intro to Cyber Security","Bitcoin's Backbone"]
+        projectLink = ["https://drive.google.com/file/d/183IttyM5YbTNkScnJe0nn9gSFWwGRZEn/view",
+                       "https://drive.google.com/file/d/1fEif94p4CVgXxYrDSD_IufKGNOJdZIU9/view",
+                       "https://drive.google.com/file/d/1k8BDwqCzpY33P4lHjTUy61CVErecNbIt/view",
+                       "https://drive.google.com/file/d/1WdpVNxADCbUzK74HN2Wf_BOdog4nFNlf/view",
+                       "https://drive.google.com/file/d/1cn47Rhdd-OyRr-ybP7zWo_9HbDe0LnfQ/view",
+                       "https://drive.google.com/file/d/1WTezE62jD30yQpPAPavuz161-X5HrrQg/view",
+                       "https://drive.google.com/file/d/1jax9fZZxxK_M3roTPRdHexAqlQyyOdH-/view",
+                       "https://drive.google.com/file/d/1jax9fZZxxK_M3roTPRdHexAqlQyyOdH-/view",
+                       "https://drive.google.com/file/d/1sqiwwx8FEVV0S02urB6DGAbujy8RBOlf/view",
+                       "https://drive.google.com/file/d/1bDXWziicwIxMAejXrqq-yMRW06BG5udb/view"]
         tableView.reloadData()
     }
     @IBAction func uploadRepoBtn(_ sender: Any) {
