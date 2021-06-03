@@ -12,6 +12,7 @@
 		551F72122626C61B00FF3DBA /* suggestedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551F72112626C61B00FF3DBA /* suggestedTableViewCell.swift */; };
 		5569712A265E14EF00028827 /* uploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55697129265E14EF00028827 /* uploadViewController.swift */; };
 		558309D9266917FB0033C2B9 /* filterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558309D8266917FB0033C2B9 /* filterViewController.swift */; };
+		558309DB266930B30033C2B9 /* tagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558309DA266930B30033C2B9 /* tagTableViewCell.swift */; };
 		55A2AD4E265EDCE200A425FD /* pjTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A2AD4D265EDCE200A425FD /* pjTableViewCell.swift */; };
 		55A2AD50265EE06A00A425FD /* webviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A2AD4F265EE06A00A425FD /* webviewViewController.swift */; };
 		55A7F9E6265D160D0061CA3F /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A7F9E5265D160D0061CA3F /* ProjectsViewController.swift */; };
@@ -35,6 +36,7 @@
 		55697129265E14EF00028827 /* uploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = uploadViewController.swift; path = UniGuide/uploadViewController.swift; sourceTree = SOURCE_ROOT; };
 		5569712B265E1CDA00028827 /* UniGuide.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UniGuide.entitlements; sourceTree = "<group>"; };
 		558309D8266917FB0033C2B9 /* filterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = filterViewController.swift; path = UniGuide/filterViewController.swift; sourceTree = SOURCE_ROOT; };
+		558309DA266930B30033C2B9 /* tagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = tagTableViewCell.swift; path = UniGuide/Controllers/tagTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		55A2AD4D265EDCE200A425FD /* pjTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = pjTableViewCell.swift; path = UniGuide/pjTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		55A2AD4F265EE06A00A425FD /* webviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = webviewViewController.swift; path = UniGuide/webviewViewController.swift; sourceTree = SOURCE_ROOT; };
 		55A7F9E5265D160D0061CA3F /* ProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 			children = (
 				558309D8266917FB0033C2B9 /* filterViewController.swift */,
 				55A2AD4F265EE06A00A425FD /* webviewViewController.swift */,
+				558309DA266930B30033C2B9 /* tagTableViewCell.swift */,
 				55A2AD4D265EDCE200A425FD /* pjTableViewCell.swift */,
 				55697129265E14EF00028827 /* uploadViewController.swift */,
 				55E196462612216F00439185 /* ViewController.swift */,
@@ -194,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				558309DB266930B30033C2B9 /* tagTableViewCell.swift in Sources */,
 				55A7F9F3265D83440061CA3F /* userProfile.swift in Sources */,
 				55A7F9EC265D17590061CA3F /* signUpWebViewController.swift in Sources */,
 				55E196472612216F00439185 /* ViewController.swift in Sources */,

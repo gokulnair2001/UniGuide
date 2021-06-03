@@ -35,9 +35,9 @@ extension filterViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "celllsss", for: indexPath)
-        cell.textLabel?.text = tagNAme[indexPath.row]
-        cell.detailTextLabel?.text = "\(projCount[indexPath.row])"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "celllsss", for: indexPath) as! tagTableViewCell
+        cell.projName.text = tagNAme[indexPath.row]
+        cell.projno.text = "\(projCount[indexPath.row])"
         cell.selectionStyle = .none
         return cell
     }
